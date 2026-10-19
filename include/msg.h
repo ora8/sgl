@@ -22,12 +22,20 @@ public:
     destroy_msg()
     {
     }
+    void process()
+    {
+        std::println("destroy_msg.process");
+    }
 };
 
 class show_msg {
 public:
     show_msg()
     {
+    }
+    void process()
+    {
+        std::println("show_msg.process");
     }
 };
 
@@ -40,9 +48,11 @@ public:
     }
     void operator()(destroy_msg& message) const
     {
+        message.process();
     }
     void operator()(show_msg& message) const
     {
+        message.process();
     }
 };
 
